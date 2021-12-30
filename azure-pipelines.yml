@@ -24,6 +24,8 @@ steps:
 
 https://github.com/Manu19-code/samplejavasnip.git
 
+workspace:
+
 - task: JavaToolInstaller@0
   inputs:
     #versionSpec: '17.0.1' 

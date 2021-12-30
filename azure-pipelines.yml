@@ -1,3 +1,4 @@
+# Java tool installer
 # Maven
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
@@ -23,8 +24,6 @@ steps:
 
 https://github.com/Manu19-code/samplejavasnip.git
 
-# Java tool installer
-# Acquire a specific version of Java from a user-supplied Azure blob or the tool cache and sets JAVA_HOME
 - task: JavaToolInstaller@0
   inputs:
     #versionSpec: '17.0.1' 

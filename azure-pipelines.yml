@@ -1,5 +1,5 @@
-# Maven
 # Java tool installer
+# Maven
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -11,6 +11,18 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: JavaToolInstaller@0
+  inputs:
+    #versionSpec: '17.0.1' 
+    jdkArchitectureOption: # Options: x64, x86
+    jdkSourceOption: # Options: AzureStorage, LocalDirectory
+    #jdkFile: # Required when jdkSourceOption == LocalDirectory
+    #azureResourceManagerEndpoint: # Required when jdkSourceOption == AzureStorage
+    #azureStorageAccountName: # Required when jdkSourceOption == AzureStorage
+    #azureContainerName: # Required when jdkSourceOption == AzureStorage
+    #azureCommonVirtualFile: # Required when jdkSourceOption == AzureStorage
+    jdkDestinationDirectory: 
+    #cleanDestinationDirectory: true 
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -26,17 +38,3 @@ steps:
     codeCoverageClassFilesDirectories: 
     codeCoverageClassFilter: 
   
-continueOnError: 
-- task: JavaToolInstaller@0
-  inputs:
-    #versionSpec: '17.0.1' 
-    jdkArchitectureOption: # Options: x64, x86
-    jdkSourceOption: # Options: AzureStorage, LocalDirectory
-    #jdkFile: # Required when jdkSourceOption == LocalDirectory
-    #azureResourceManagerEndpoint: # Required when jdkSourceOption == AzureStorage
-    #azureStorageAccountName: # Required when jdkSourceOption == AzureStorage
-    #azureContainerName: # Required when jdkSourceOption == AzureStorage
-    #azureCommonVirtualFile: # Required when jdkSourceOption == AzureStorage
-    jdkDestinationDirectory: 
-    #cleanDestinationDirectory: true 
-    azureCommonVirtualFile: 
